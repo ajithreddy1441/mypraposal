@@ -49,11 +49,20 @@ export default function FinalScreen() {
       {whatsappNumber && (
         <motion.a
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+<<<<<<< HEAD
+=======
+          target="_blank"
+          rel="noopener noreferrer"
+>>>>>>> ecf2fb5fe3ad60987ea193a25724f1ea40bbf042
           onClick={() => notify('whatsapp')}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 6.8, duration: 1 }}
+<<<<<<< HEAD
           className="btn-love pointer-events-auto relative z-20 mt-8 inline-flex shrink-0 cursor-pointer items-center gap-2 !px-7 !py-3.5 !text-base"
+=======
+          className="btn-love relative z-10 mt-8 inline-flex items-center gap-2 !px-7 !py-3.5 !text-base"
+>>>>>>> ecf2fb5fe3ad60987ea193a25724f1ea40bbf042
         >
           {whatsappButton}
         </motion.a>
