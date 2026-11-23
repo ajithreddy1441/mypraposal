@@ -58,9 +58,6 @@ export default function FinalScreen() {
           transition={{ delay: 6.8, duration: 1 }}
 
           className="btn-love pointer-events-auto relative z-20 mt-8 inline-flex shrink-0 cursor-pointer items-center gap-2 !px-7 !py-3.5 !text-base"
-Name="btn-love pointer-events-auto relative z-20 mt-8 inline-flex shrink-0 cursor-pointer items-center gap-2 !px-7 !py-3.5 !text-base"
-
-          className="btn-love relative z-10 mt-8 inline-flex items-center gap-2 !px-7 !py-3.5 !text-base"
 
         >
           {whatsappButton}
