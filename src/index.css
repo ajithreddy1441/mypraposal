@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    background: #110818;
+  }
+  body {
+    @apply font-sans text-lavender-soft antialiased;
+    /* plum silk: a soft lamp-glow from above and two faint diagonal sheens like light on pattu */
+    background:
+      radial-gradient(120% 55% at 50% -8%, rgba(92, 42, 110, 0.55) 0%, transparent 62%),
+      linear-gradient(118deg, transparent 32%, rgba(226, 192, 126, 0.045) 44%, transparent 56%),
+      linear-gradient(118deg, transparent 58%, rgba(187, 166, 217, 0.04) 68%, transparent 78%),
+      #110818;
+    background-attachment: fixed;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    font-feature-settings: 'ss01';
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    letter-spacing: -0.01em;
+  }
+  p { text-wrap: pretty; }
+  ::selection { background: rgba(226, 192, 126, 0.35); }
+  img { -webkit-user-drag: none; }
+  :focus-visible { outline: 2px solid #E2C07E; outline-offset: 3px; border-radius: 999px; }
+}
+
+@layer components {
+  /* silk card with a zari hairline */
+  .glass {
+    @apply rounded-[22px] backdrop-blur-xl;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.065) 0%, rgba(255, 255, 255, 0.018) 55%, rgba(226, 192, 126, 0.03) 100%);
+    border: 1px solid rgba(226, 192, 126, 0.22);
+    box-shadow:
+      0 0 0 4px rgba(17, 8, 24, 0.35),
+      0 0 0 5px rgba(226, 192, 126, 0.08),
+      0 30px 70px -28px rgba(0, 0, 0, 0.8);
+  }
+
+  /* zari-gold foil lettering. The padding + matching negative margin gives swashes and italics
+     room inside the painted area, so no letter is ever clipped. */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(178deg, #fbecc4 0%, #e8c886 34%, #b98a40 58%, #f0d595 82%, #c99a4e 100%);
+    padding: 0.1em 0.12em 0.16em;
+    margin: -0.1em -0.12em -0.16em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  /* rose-gold for names in script */
+  .text-love {
+    @apply bg-clip-text text-transparent;
+    display: inline-block;
+    background-image: linear-gradient(175deg, #ffd9cf 0%, #f08a9b 40%, #c9405a 70%, #f3c58f 100%);
+    padding: 0.18em 0.4em 0.3em;
+    margin: -0.18em -0.4em -0.3em;
+  }
+
+  .btn-love {
+    @apply relative overflow-hidden rounded-full px-9 py-4 text-lg font-semibold;
+    color: #1d0e25;
+    background: linear-gradient(180deg, #f8e4b0 0%, #e2c07e 45%, #b8893e 100%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.55) inset,
+      0 -2px 0 rgba(120, 80, 30, 0.35) inset,
+      0 10px 30px -8px rgba(226, 192, 126, 0.55);
+  }
+  .btn-glass {
+    @apply rounded-full px-8 py-4 font-medium text-lavender-soft backdrop-blur-md transition-colors;
+    border: 1px solid rgba(226, 192, 126, 0.35);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .btn-glass:hover { background: rgba(226, 192, 126, 0.08); }
+
+  /* small lead-in line above a heading: italic serif, sentence case */
+  .eyebrow {
+    @apply font-book text-[15px] italic text-lavender;
+    letter-spacing: 0.01em;
+  }
+
+  /* temple border woven into pattu sarees, as a repeating gold band */
+  .zari {
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='14' viewBox='0 0 24 14'%3E%3Cpath d='M0 13.5h24' stroke='%23E2C07E' stroke-width='1'/%3E%3Cpath d='M0 11.5 6 4l6 7.5L18 4l6 7.5' fill='none' stroke='%23E2C07E' stroke-width='.9'/%3E%3Cpath d='M3 11.5 6 7.6l3 3.9zM15 11.5l3-3.9 3 3.9z' fill='%23E2C07E' opacity='.7'/%3E%3Ccircle cx='6' cy='1.8' r='1' fill='%23E2C07E'/%3E%3Ccircle cx='18' cy='1.8' r='1' fill='%23E2C07E'/%3E%3C/svg%3E") repeat-x center / 24px 14px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+    opacity: 0.85;
+  }
+
+  .paper {
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6), transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(226, 192, 126, 0.2), transparent 45%),
+      #f8f1e7;
+  }
+  /* names (Mahi, Nuvvu...) are set in DM Serif Display italic */
+  .font-script { font-style: italic; letter-spacing: -0.015em; }
+
+  .no-callout {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+  }
+}
+
+/* Floating red hearts */
+@keyframes heart-rise {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(0.6); opacity: 0; }
+  10% { opacity: var(--o, 0.6); }
+  50% { transform: translate3d(var(--dx, 20px), -55vh, 0) rotate(var(--rot, 12deg)) scale(1); }
+  90% { opacity: var(--o, 0.6); }
+  100% { transform: translate3d(calc(var(--dx, 20px) * -1), -115vh, 0) rotate(calc(var(--rot, 12deg) * -1)) scale(0.9); opacity: 0; }
+}
+.heart-float {
+  animation: heart-rise var(--d, 14s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+}
+.heartbeat {
+  animation: heartbeat 1.6s ease-in-out infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1s step-end infinite; }
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heart-float, .heartbeat, .animate-shimmer { animation: none; }
+}
